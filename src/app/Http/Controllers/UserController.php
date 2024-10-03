@@ -7,7 +7,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function _invoke(Request $request) {
+    public function __invoke(Request $request) {
         $user = User::create($request->all());
 
         return response()->json(['data' => $user], 201);

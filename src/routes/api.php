@@ -18,7 +18,7 @@ use App\Http\Controllers\CommentController;
 |
 */
 
-Route::post('/v1/user', UserController::class);
+Route::post('/v1/user', [UserController::class, 'store']);
 Route::apiResource('/v1/post', PostController::class)->only(['index', 'store', 'show', 'destroy']);
 Route::post('/v1/like', [LikeController::class, 'store']);
 Route::delete('/v1/like/{like}', [LikeController::class, 'destroy']);

@@ -8,7 +8,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $items = Post::all();
+        $items = Post::with(['user', 'likes', 'comments'])->get();
 
         return response()->json(['posts' => $items], 200);
     }
